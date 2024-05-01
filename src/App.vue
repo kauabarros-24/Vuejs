@@ -2,35 +2,30 @@
 export default {
   data() {
     return {
+      nome: "Kaua",
+      idade: 16,
       contador: 0
+
     }
   },
   methods: {
-    incrementarContador() {
-      this.contador++
-    },
-    decrementarContador() {
-      if (this.contador > 0) {
-        this.contador--
-      }
-    },
-    zerar() {
-      this.contador = 0
-    }
-  },
+    inverterTexto(texto) {
+      return texto.split('').reverse().join('')
+    } 
+  }
 }
-
 </script>
 
 <template>
-  <button @click="incrementarContador">Incrementar</button>
-  <button @click="decrementarContador">Decrementar</button>
-  <button @click="zerar">Zerara</button>
-  <p>O valor do contador é: {{ contador }}</p>
+  <p v-if="contador > 10">O contador é maior que 10</p>
+  <p v-if="contador < 10">O contador é menor que 10</p>
+  <p>{{ contador }}</p>
+  <p>{{ inverterTexto(nome) }}</p>
+
 </template>
 
 <style scoped>
-button {
+p {
   font-weight: bold;
 }
 </style>
